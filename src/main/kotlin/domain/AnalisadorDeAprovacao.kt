@@ -1,5 +1,7 @@
 package domain
 
+import domain.criterios.CriterioDeAprovacao
+
 class AnalisadorDeAprovacao {
 
     // ---------------------------------
@@ -12,4 +14,9 @@ class AnalisadorDeAprovacao {
     //
     // ---------------------------------
 
+    private lateinit var criterio: CriterioDeAprovacao
+
+    fun defineCriterio(novoCriterio: CriterioDeAprovacao) {
+        criterio = novoCriterio
+    }
 }
