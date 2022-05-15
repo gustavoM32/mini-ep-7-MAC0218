@@ -1,5 +1,7 @@
 package domain
 
+import domain.Boletim
+import domain.BoletimFechado
 import domain.criterios.CriterioDeAprovacao
 
 class AnalisadorDeAprovacao {
@@ -18,5 +20,11 @@ class AnalisadorDeAprovacao {
 
     fun defineCriterio(novoCriterio: CriterioDeAprovacao) {
         criterio = novoCriterio
+    }
+
+    fun fechaBoletim(boletim: Boletim): BoletimFechado {
+        val mediaFinal = criterio.mediaFinal(boletim)
+        val foiAprovado = criterio.estaAprovado(boletim)
+        return BoletimFechado(boletim.mediaEPs, boletim.mediaMiniEPs, mediaFinal, foiAprovado)
     }
 }
